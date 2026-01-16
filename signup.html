@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up – TasksMaster</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>TasksMaster</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<main style="text-align:center; padding:2rem;">
+  <h2>Create Account</h2>
+
+  <!-- Profile selector -->
+  <p>Select profile type:</p>
+  <select id="profileType">
+    <option value="customer">Customer</option>
+    <option value="worker">Worker</option>
+  </select>
+
+  <!-- Signup form -->
+  <form id="signupForm" style="margin-top:1rem;">
+    <input type="text" id="name" placeholder="Full Name" required><br><br>
+    <input type="email" id="email" placeholder="Email" required><br><br>
+    <input type="password" id="password" placeholder="Password" required><br><br>
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <p style="margin-top:1rem;">Already have an account? <a href="login.html">Login</a></p>
+</main>
+
+<footer>
+  &copy; 2026 TasksMaster. All rights reserved.
+</footer>
+
+<script>
+  const signupForm = document.getElementById("signupForm");
+  signupForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const profile = document.getElementById("profileType").value;
+    alert(`Account created as ${profile} (demo only)`);
+    // Redirect demo users to dashboard
+    if(profile === "customer") {
+      window.location.href = "customer/dashboard.html";
+    } else {
+      window.location.href = "worker/dashboard.html";
+    }
+  });
+</script>
+
+</body>
+</html>
